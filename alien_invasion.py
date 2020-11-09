@@ -15,9 +15,10 @@ def run_game():
     #创建一艘飞船、一个子弹编组
     ship = Ship(ai_settings , screen)
     bullets = Group()
+    aliens = Group()
 
-    #创建一个外星人
-    alien = Alien(ai_settings , screen)
+    #创建外星人群
+    gf.create_fleet(ai_settings , screen , aliens)
 
     #设置背景色
     bg_color = (230 , 230 , 230)
@@ -27,7 +28,7 @@ def run_game():
         gf.check_events(ai_settings , screen , ship , bullets)
         ship.update()
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings , screen , ship , alien , bullets)
+        gf.update_screen(ai_settings , screen , ship , aliens , bullets)
 
 
 run_game()
