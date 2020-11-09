@@ -4,7 +4,6 @@ from settings import Settings
 from ship import Ship
 import game_functions as gf
 from alien import Alien
-import sys
 
 def run_game():
     #初始化游戏并创建一个屏幕对象
@@ -16,6 +15,10 @@ def run_game():
     #创建一艘飞船、一个子弹编组
     ship = Ship(ai_settings , screen)
     bullets = Group()
+
+    #创建一个外星人
+    alien = Alien(ai_settings , screen)
+
     #设置背景色
     bg_color = (230 , 230 , 230)
 
@@ -24,7 +27,7 @@ def run_game():
         gf.check_events(ai_settings , screen , ship , bullets)
         ship.update()
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings , screen , ship , bullets)
+        gf.update_screen(ai_settings , screen , ship , alien , bullets)
 
 
 run_game()
