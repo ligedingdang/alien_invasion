@@ -13,7 +13,7 @@ def check_keydown_events(event , ai_settings , screen , ship , bullets):
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings , screen , ship , bullets)
     elif event.key == pygame.K_q:
-        sys.exit()
+        pygame.quit()
 
 def check_keyup_events(event , ship):
     """响应松开"""
@@ -26,7 +26,7 @@ def check_events(ai_settings , screen , stats , play_button , ship , aliens , bu
     """响应按键和鼠标事件"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            sys.exit()
+            pygame.quit()
         elif event.type == pygame.KEYDOWN:
            check_keydown_events(event , ai_settings , screen , ship , bullets)
         elif event.type == pygame.KEYUP:
